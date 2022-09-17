@@ -4,17 +4,20 @@ error_reporting(E_ALL);
 
 $textStorage = Array();
 
-function debug($val) :void{
+function debug($val) :void
+{
     echo '<pre>';
     var_dump($val);
     echo '</pre>';
 }
 
-function add(string $title, string $text, array &$arr) :void{
+function add(string $title, string $text, array &$arr) :void
+{
     $arr[] = Array('title' => $title, 'text' => $text);
 }
 
-function remove(int $text_index, array &$arr) :bool{
+function remove(int $text_index, array &$arr) :bool
+{
     if(array_key_exists($text_index, $arr)){
         unset($arr[$text_index]);
         return true;
@@ -22,7 +25,8 @@ function remove(int $text_index, array &$arr) :bool{
     return false;
 }   
 
-function edit(int $text_index, string $title = null, string $text = null, array &$arr) :bool{
+function edit(int $text_index, string $title = null, string $text = null, array &$arr) :bool
+{
     if(!$title && !$text){
         echo '<script type="text/javascript">alert("Вы не внесли изменений!")</script>';
         return true;
